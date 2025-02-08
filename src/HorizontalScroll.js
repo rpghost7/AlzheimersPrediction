@@ -13,13 +13,14 @@ const HorizontalScroll = () => {
     const cards = cardsRef.current;
     const container = containerRef.current;
     const horizontal = horizontalRef.current;
-    const totalWidth = horizontal.offsetWidth - window.innerWidth + 200;
+    const totalWidth = horizontal.offsetWidth - window.innerWidth +500 ;
     const cardWidth = cards[0].offsetWidth;
     const spacing = 144;
     // spacing is the gap i have given between the cards
     const snapPoints = cards.map(
-      (_, i) => (i * (cardWidth + spacing) + 300) / totalWidth
+      (_, i) => (i * (cardWidth + spacing) + 500 ) / totalWidth
     );
+    // here i have added 300 because the cards are starting from 300px from the left of the center
     // snapPoints is an array of the points at which the cards will snap to,
     // and it is normalized from 0 to 1 depending on the total width of the container
 
@@ -78,16 +79,18 @@ const HorizontalScroll = () => {
           ease: "power1.inOut",
         },
         onUpdate: (self) => {
-          const progress = self.progress * totalWidth - 300;
+          const progress = self.progress * totalWidth -500;
+          // self.progress is the progress of the scroll in pixels 
           cards.forEach((card, index) => {
             const cardPosition = index * (cardWidth + spacing);
             const distanceFromCenter = Math.abs(progress - cardPosition);
             // this is the distance between the card and the center of the container
-            const threshold = (cardWidth + spacing/2) ;
+            const threshold = (cardWidth + spacing)/2 ;
 
             const scale =
               distanceFromCenter < threshold
                 ? 1 + (1 - distanceFromCenter / threshold) * 0.2
+                // this increases the scale of the card by 20% when it is close to the center
                 : 1;
             // this is the scale of the card 
             // const isInFocus = distanceFromCenter < threshold * 0.5;
@@ -133,14 +136,15 @@ const HorizontalScroll = () => {
     >
       <div
         ref={horizontalRef}
-        className="h-[500px] flex relative gap-36 px-[calc(50vw+200px)] "
+        className="h-[500px] flex relative gap-36 px-[calc(50vw+400px)] "
       >
-        {[...Array(10)].map((_, index) => (
+        {/* note that center of each card will be at 100px w so that is why we are adding 300 to the snapPoints etc */}
+        {[...Array(5)].map((_, index) => (
           <div
             key={index}
             ref={(el) => (cardsRef.current[index] = el)}
             className={`
-              min-w-[200px] h-[400px] 
+              min-w-[400px] h-[400px] 
               flex justify-center items-center 
               text-xl font-semibold
               rounded-lg shadow-lg

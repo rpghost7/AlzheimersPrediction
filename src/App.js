@@ -10,8 +10,21 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-body::-webkit-scrollbar {
-    display: none;
+  /* Webkit browsers (Chrome, Safari, newer versions of Opera) */
+  ::-webkit-scrollbar {
+    width: 6px;  /* Make scrollbar thin */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f172a;  /* Dark background for contrast */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #00f7ff;  /* Neon blue color */
+    border-radius: 3px;  /* Rounded corners */
+    &:hover {
+      background: #00d8ff;  /* Slightly darker on hover */
+    }
   }
   body {
 
