@@ -1,0 +1,32 @@
+
+
+body{
+    background-color: #1c1c1c;
+}
+
+.chart-border{
+    box-shadow: 30px 30px 0px 3px rgb(43, 106, 177);
+}
+
+.introduction{
+    /* color: #E0E0E0; */
+    background-image: url('C:/Users/risha/OneDrive/Desktop/Biostat Project/myapp/src/brain-background-mcl1xtgzyvk3pydj.jpg');
+}
+/* .background-img{
+    background-image: url('C:/Users/risha/OneDrive/Desktop/Biostat Project/myapp/src/brain-background-mcl1xtgzyvk3pydj.jpg');
+} */
+.arrow{
+     clip-path: polygon(46% 0, 54% 83%, 66% 81%, 47% 100%, 28% 81%, 42% 83%);
+     background-color: aqua;
+}
+
+.big-arrow{
+    clip-path: polygon(78% 34%, 79% 15%, 100% 47%, 81% 82%, 80% 61%, 0 62%, 0 34%);
+    background-color: #FF8C00;
+
+}
+
+.content-card{
+    background-color: #333333;
+    color: #E0E0E0;
+}
