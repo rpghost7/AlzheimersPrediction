@@ -1,8 +1,10 @@
 import "./App.css";
 import Introduction from "./Introduction";
-import PopulationGraph from "./PopulationGraph";
+
 import HorizontalScroll from "./HorizontalScroll";
 import { createGlobalStyle } from 'styled-components';
+import PredictComponent from "./PredictComponent";
+
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -35,13 +37,15 @@ const GlobalStyle = createGlobalStyle`
       Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 `;
+
 function App() {
   return (
     <>
     <Introduction></Introduction>
-      {/* <PopulationGraph></PopulationGraph> */}
+     
       <GlobalStyle />
       <HorizontalScroll></HorizontalScroll>
+      <PredictComponent></PredictComponent>
     </>
   );
 }

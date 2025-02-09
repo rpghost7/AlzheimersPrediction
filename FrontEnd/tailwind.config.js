@@ -5,7 +5,9 @@ module.exports = {
     extend: {
       fontFamily: {
         source: ["Source Code Pro", "sans-serif"],
-        barlow :["Barlow Condensed","sans-serif"]
+        barlow :["Barlow Condensed","sans-serif"],
+        oswald : ["Oswald","sans-serif"],
+        kanit : ["Kanit","sans-serif"],
       },
     },
     plugins: [],
