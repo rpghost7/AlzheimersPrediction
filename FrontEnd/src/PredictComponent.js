@@ -93,7 +93,15 @@ function PredictComponent() {
         >
           Get Prediction
         </button>
-        {prediction !== null && <p className="text-white">Prediction: {prediction}</p>}
+        {prediction !== null && (
+        <div className={`text-white text-center text-2xl p-2 rounded-lg ${
+          prediction === 0 ? 'bg-green-600' : 'bg-red-600'
+        }`}>
+          {prediction === 0 
+            ? "Congratulations! You don't have Alzheimer's" 
+            : "According to the model you have Alzheimer's, so please consult your nearest doctor at the earliest."}
+        </div>
+      )}
       </div>
     </div>
   );

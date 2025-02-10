@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-
+import dementia from "./Dementia.webp";
+import protein2 from "./protein.webp";
+import mortality from "./Mortality.webp";
+import women from "./Women.webp";
+import money from "./Money.webp";
 gsap.registerPlugin(ScrollTrigger);
 
 const HorizontalScroll = () => {
@@ -15,23 +19,23 @@ const HorizontalScroll = () => {
     "Mortality Rate",
     "Gender Patterns",
     "Treatment Costs",
-    
   ];
-  const cardNumbers = [
-    "8.8",
-    "40-65%",
-    "5th",
-    "2/3rd's",
-    "$305 Billion",
+  const images = [dementia, protein2, mortality, women, money];
+  const cardNumbers = ["8.8", "40-65%", "5th", "2/3rd's", "$305 Billion"];
+  const sideText = [
+    "Million Indians older than 60 years live with dementia. The estimated dementia prevalence for adults ages 60+ in India is 7.4%.",
+    "Is the estimate that people diagnosed with Alzheimer's have the APOE-e4 gene. APOE-e4 is one of three common forms of the APOE gene",
+    "Leading cause of death in adults older than 65 years. One in 3 older Americans dies with Alzheimer's or another dementia. ",
+    "",
+    "is the estimated cost to treat Alzheimer patients in 2020,with the cost expected to increase to more than $1 trillion as the population ages.",
   ];
   const cardContent = [
-    "Million Indians older than 60 years live with dementia. The estimated dementia prevalence for adults ages 60+ in India is 7.4%. Dementia is more prevalent among females than males and in rural than urban areas. By 2030, it is projected that there will be 82 lakh people with dementia in India, and by 2050, this number will soar to a staggering 1.23 crore!",
-    "Is the estimate that people diagnosed with Alzheimer's have the APOE-e4 gene. APOE-e4 is one of three common forms of the APOE gene. We all inherit a copy of some form of APOE from each parent. Those who inherit one copy of APOE-e4 from their mother or father have an increased risk of developing Alzheimer's",
-    "Leading cause of death in adults older than 65 years. One in 3 older Americans dies with Alzheimer's or another dementia. It kills more than breast cancer and prostate cancer combined. Deaths from Alzheimer's have more than doubled between 2000 and 2021, while those from heart disease — the leading cause of death — have decreased",
+    " Dementia is more prevalent among females than males and in rural than urban areas. By 2030, it is projected that there will be 82 lakh people with dementia in India, and by 2050, this number will soar to a staggering 1.23 crore!",
+    " APOE-e4 may tend to make symptoms appear at a younger age than usual, We all inherit a copy of some form of APOE from each parent. Those who inherit one copy of APOE-e4 from either have an increased risk of developing Alzheimer's",
+    " It kills more than breast cancer and prostate cancer combined. Deaths from Alzheimer's have more than doubled between 2000 and 2021, while those from heart disease — the leading cause of death — have decreased",
     "of people living with Alzheimer's are women. Women tend to live longer than men, and Alzheimer’s risk increases with age. As women age and undergo menopause, estrogen levels drop, which can contribute to the accelerated brain aging and the onset of Alzheimer’s symptoms",
-    "is the estimated cost to treat Alzheimer patients in 2020,with the cost expected to increase to more than $1 trillion as the population ages. The total lifetime cost of care for a person living with dementia is estimated at almost $400,000. 70% of these costs are borne by family caregivers in the forms of unpaid caregiving and out-of-pocket expenses",
+    " The total lifetime cost of care for a person living with dementia is estimated at almost $400,000. 70% of these costs are borne by family caregivers in the forms of unpaid caregiving and out-of-pocket expenses",
   ];
-
 
   useEffect(() => {
     const cards = cardsRef.current;
@@ -70,7 +74,7 @@ const HorizontalScroll = () => {
         // moves 60px up
         // rotation: randomRotation,
         // rotates the card
-        duration: 5,
+        duration: 2,
         // duration of the animation
         delay: index + 2,
         // delay the animation
@@ -171,7 +175,7 @@ const HorizontalScroll = () => {
   return (
     <div
       ref={containerRef}
-      className="h-screen w-full flex items-center bg-rose-400 overflow-hidden"
+      className="h-screen w-full flex items-center bg-rose-500 overflow-hidden"
     >
       <div
         ref={horizontalRef}
@@ -188,26 +192,34 @@ const HorizontalScroll = () => {
               min-w-[400px] h-[500px] 
                
                
-              rounded-lg shadow-lg
+              rounded-3xl shadow-lg
               transform origin-center
               transition-all duration-300 ease-out
               hover:shadow-xl relative
-              ${getCardColor(index)}
+              bg-slate-700
 
 
             `}
                 // ${getCardColor(index)}
               >
-                <div className="text-7xl text-white absolute top-4 left-5 ">
+                <div className="text-6xl text-teal-400 absolute top-4 left-7 ">
                   {cardNumbers[index]}
                 </div>
-                  <div className="text-2xl text-white absolute left-5 top-24 mr-10">
-                  {cardContent[index]}
-                  </div>
+                <img
+                  src={images[index]}
+                  alt="dementia"
+                  className="w-40 h-40 absolute left-4 top-24 rounded-3xl mr-1"
+                />
+                <div className="text-white text-xl absolute right-1 top-20 left-48 text-wrap">
+                  {sideText[index]}
+                </div>
 
+                <div className="text-xl text-white absolute left-5 bottom-5 mr-10 ">
+                  {cardContent[index]}
+                </div>
               </div>
               <div
-                className={`-bottom-[80px] absolute card-text text-3xl  ${getCardColor(index)} text-white p-2 rounded-lg `}
+                className={`-bottom-[80px] absolute card-text text-3xl  bg-slate-700 text-teal-400 p-2 rounded-lg `}
                 ref={(el) => (cardTextRef.current[index] = el)}
               >
                 {" "}
@@ -221,21 +233,21 @@ const HorizontalScroll = () => {
   );
 };
 
-const getCardColor = (index) => {
-  const colors = [
-    "bg-gray-700", // Dark Neutral Gray
-    "bg-blue-700", // Deep Royal Blue
-    "bg-green-700", // Rich Forest Green
-    "bg-red-700", // Strong Crimson Red
-    "bg-indigo-700", // Bold Indigo
-    "bg-amber-700", // Deep Warm Gold
-    "bg-emerald-700", // Elegant Emerald Green
-    "bg-cyan-700", // Vibrant Cyan
-    "bg-rose-700", // Intense Blush Pink
-    "bg-purple-700", // Dark Regal Purple
-  ];
-  return colors[index % colors.length];
-};
+// const getCardColor = (index) => {
+//   const colors = [
+//     "bg-slate-700", // Dark Neutral Gray
+//     "bg-blue-700", // Deep Royal Blue
+//     "bg-green-700", // Rich Forest Green
+//     "bg-red-700", // Strong Crimson Red
+//     "bg-indigo-700", // Bold Indigo
+//     "bg-amber-700", // Deep Warm Gold
+//     "bg-emerald-700", // Elegant Emerald Green
+//     "bg-cyan-700", // Vibrant Cyan
+//     "bg-rose-700", // Intense Blush Pink
+//     "bg-purple-700", // Dark Regal Purple
+//   ];
+//   return colors[index % colors.length];
+// };
 const getTextColor = (index) => {
   const colors = [
     "text-white", // Dark Neutral Gray
