@@ -3,6 +3,25 @@ import { useState } from "react";
 function PredictComponent() {
   const [inputData, setInputData] = useState(Array(23).fill(0.5));
   const [prediction, setPrediction] = useState(null);
+  const [inputStrings, setInputStrings] = useState(inputData.map(val => val.toString()));
+
+// Add this new handler function
+const handleInputChange = (index, stringValue) => {
+  // Update the string value immediately for smooth typing
+  const newInputStrings = [...inputStrings];
+  newInputStrings[index] = stringValue;
+  setInputStrings(newInputStrings);
+
+  // Convert to number and update if valid
+  const numValue = parseFloat(stringValue);
+  if (!isNaN(numValue) && 
+      numValue >= featureRanges[index].min && 
+      numValue <= featureRanges[index].max) {
+    const newInputData = [...inputData];
+    newInputData[index] = numValue;
+    setInputData(newInputData);
+  }
+};
   const featureNames = [
     "Glu", "Cho", "TG", "LDL", "Homoc", "Transf", "ferrit", "Hb",
     "CardiolIGG", "CardioIGM", "TP", "Fifrinogeno", "T3", "TSH",
@@ -70,19 +89,20 @@ function PredictComponent() {
         <h2 className="text-white text-2xl ">Let's use your data to predict your risk of having Alzheimer's</h2>
         
         <div className="w-full space-y-2">
-          {inputData.map((value, index) => (
-            <div key={index} className="flex items-center space-x-4">
+        {inputData.map((value, index) => (
+            <div key={index} className="flex items-center space-x-4 bg-gray-800/30 p-4 rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
               <span className="text-white w-32">{featureNames[index]}:</span>
-              <input
-                type="range"
-                min={featureRanges[index].min}
-                max={featureRanges[index].max}
-                step={(featureRanges[index].max - featureRanges[index].min) / 100}
-                value={value}
-                onChange={(e) => handleSliderChange(index, e.target.value)}
-                className="flex-grow"
-              />
-              <span className="text-white w-16">{value.toFixed(2)}</span>
+              <div className="flex items-center space-x-4">
+                <input
+                  type="text"
+                  value={inputStrings[index]}
+                  onChange={(e) => handleInputChange(index, e.target.value)}
+                  className="w-24 bg-gray-700 text-white px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <span className="text-gray-400 text-sm">
+                  Range: {featureRanges[index].min} - {featureRanges[index].max}
+                </span>
+              </div>
             </div>
           ))}
         </div>
