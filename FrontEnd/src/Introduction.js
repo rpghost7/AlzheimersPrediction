@@ -45,7 +45,7 @@ export default function Introduction() {
         start: "top 60%", // Starts animation when element is 40% into viewport
         end: "top 40%",
         toggleActions: "play none none reverse",
-        once: true,
+        once: false,
         // markers: true, // Uncomment for debugging
       },
     });
@@ -252,50 +252,15 @@ export default function Introduction() {
             ref={titleRef}
             className="text-7xl font-bold text-white mb-12 text-center"
           >
-            What is Alzheimer's?
+             Charles Darwin
           </h1>
 
           <div className="max-w-4xl mx-auto space-y-8 text-gray-200">
             {/* Introduction Paragraph */}
-            <motion.div
-               variants={{
-                show:{
-                  opacity:1,
-                  transition:{
-                    type:"spring",
-                    stiffness:100,
-                    damping:20,
-                   
-                    delayChildren:0.2,
-                    staggerChildren:0.3,
-                    once: true,
-                  }
-                },
-                hidden:{
-                  opacity:0,
-                  
-                }
-               }}
-              initial="hidden"
-              whileInView="show"
-              // both of these work
-
-               viewport={{amount:0.8,once:true}}
-              className="text-xl leading-relaxed"
-            >
-              Alzheimer's disease is a progressive brain disorder that gradually
-              destroys memory, thinking skills, and the ability to carry out
-              simple tasks. It is the most common cause of dementia, accounting
-              for 60–80% of dementia cases worldwide.
-
-
-
-            </motion.div>
-
-            {/* Key Facts Section */}
+            
             <div className="mt-12">
-              <h2 className="text-2xl font-semibold text-white mb-6">
-                Key Facts About Alzheimer's:
+              <h2 className="text-5xl font-semibold text-white mb-6">
+                Our group members
               </h2>
               <motion.div
                 variants={{
@@ -308,78 +273,72 @@ export default function Introduction() {
 
                       delayChildren: 0,
                       staggerChildren: 0.1,
-                      once: true,
+                      once: false,
                     },
                   },
 
                   hidden: {
                     opacity: 0,
-                    once: true,
+                    once: false,
                   },
                 }}
                 initial="hidden"
                 whileInView="show"
                 // both of these work
-                viewport={{ amount: 0.4, once: true }}
+                viewport={{ amount: 0.4, once: false }}
 
 
                 className="space-y-4"
               >
-                <motion.div variants={item} className="flex items-start gap-3">
-                  <span className="text-2xl">🧠</span>
-                  <p className="text-lg">
-                    <span className="font-semibold text-white">Cause:</span>{" "}
-                    Abnormal protein build-up in the brain (amyloid plaques &
-                    tau tangles) that damages nerve cells.
+                <motion.div variants={item} className="flex items-start gap-3 ">
+                
+                  <p className="text-4xl">
+                    <span className="font-semibold text-white">Vedant Lashkari:</span>{" "}
+                    bt23btech11025@iith.ac.in
                   </p>
                 </motion.div>
 
                 <motion.div variants={item} className="flex items-start gap-3">
-                  <span className="text-2xl">📉</span>
-                  <p className="text-lg">
-                    <span className="font-semibold text-white">Symptoms:</span>{" "}
-                    Memory loss, confusion, difficulty speaking, personality
-                    changes, and loss of independence.
+                  
+                  <p className="text-4xl">
+                    <span className="font-semibold text-white">Sinduri Mekala:</span>{" "}
+                  bt23btech11022@iith.ac.in
                   </p>
                 </motion.div>
 
                 <motion.div variants={item} className="flex items-start gap-3">
-                  <span className="text-2xl">📊</span>
-                  <p className="text-lg">
+              
+                  <p className="text-4xl">
                     <span className="font-semibold text-white">
-                      Progression:
+                      Aryan Raj:
                     </span>{" "}
-                    Symptoms worsen over time, from mild forgetfulness to severe
-                    cognitive decline.
+                   bt23btech11004@iith.ac.in
                   </p>
                 </motion.div>
 
                 <motion.div variants={item} className="flex items-start gap-3">
-                  <span className="text-2xl">⚕️</span>
-                  <p className="text-lg">
-                    <span className="font-semibold text-white">Treatment:</span>{" "}
-                    No cure yet, but medications and therapies help manage
-                    symptoms.
+                  
+                  <p className="text-4xl">
+                    <span className="font-semibold text-white">Rishabh Pillai:</span>{" "}
+                  bt23btech11021@iith.ac.in
                   </p>
                 </motion.div>
 
                 <motion.div variants={item} className="flex items-start gap-3">
-                  <span className="text-2xl">🔬</span>
-                  <p className="text-lg">
+                  
+                  <p className="text-4xl">
                     <span className="font-semibold text-white">
-                      Risk Factors:
+                      Atharv Choudhary:
                     </span>{" "}
-                    Age, genetics, lifestyle (diet, exercise, heart health), and
-                    head injuries.
+                   bt23btech11005@iith.ac.in
                   </p>
                 </motion.div>
 
                 <motion.div variants={item} className="flex items-start gap-3">
-                  <span className="text-2xl">🌍</span>
-                  <p className="text-lg">
-                    <span className="font-semibold text-white">Impact:</span>{" "}
-                    Over 55 million people live with dementia worldwide, and
-                    numbers are rising.
+           
+                  <p className="text-4xl">
+                    <span className="font-semibold text-white">Alen Issac Sam:</span>{" "}
+                  bt23btech11003@iith.ac.in
                   </p>
                 </motion.div>
               </motion.div>
@@ -389,7 +348,7 @@ export default function Introduction() {
                 <h2 className="text-4xl font-semibold text-white tracking-wide">
                   Now let's look at some statistics
                   <br />
-                  related to Alzheimer's
+                  
                 </h2>
                 {/* Optional: Add a downward arrow or indicator */}
                 <div className="mt-8 text-3xl animate-bounce">↓</div>

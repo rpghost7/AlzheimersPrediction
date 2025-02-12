@@ -101,7 +101,7 @@ function PredictComponent() {
     <div className="w-full min-h-screen bg-black flex justify-center items-center py-8">
       <div className="flex flex-col items-center space-y-4 w-full max-w-2xl px-4">
         <h2 className="text-white text-2xl">
-          Let's use your data to predict your risk of having Alzheimer's
+         Here is our prediction model for Alzheimer's
         </h2>
         
         <div className="w-full space-y-2">
